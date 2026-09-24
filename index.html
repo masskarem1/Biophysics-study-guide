@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليلك لدراسة الفيزياء الحيوية - Biotechnology</title>
+    <style>
+        :root {
+            --bg-color: #FAFAFA;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --accent-blue: #0055FF;
+            --card-bg: #FFFFFF;
+            --border-color: #EAEAEA;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .faq-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            cursor: pointer;
+            background-color: var(--card-bg);
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .card-header:hover {
+            background-color: #F9FBFF;
+        }
+
+        .card-title-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .card-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-blue);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            transition: transform 0.4s ease;
+        }
+
+        .card-content-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease;
+        }
+
+        .card-content {
+            overflow: hidden;
+            padding: 0 30px;
+            opacity: 0;
+            transition: padding 0.4s ease, opacity 0.4s ease;
+        }
+
+        .card.active .card-content-wrapper {
+            grid-template-rows: 1fr;
+        }
+
+        .card.active .card-content {
+            padding: 0 30px 30px 30px;
+            opacity: 1;
+        }
+
+        .card.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+        
+        .card.active .card-header {
+            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 20px;
+        }
+
+        .card-content ul {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .card-content ul li {
+            margin-bottom: 15px;
+            padding-right: 25px;
+            position: relative;
+        }
+
+        .card-content ul li::before {
+            content: "✅";
+            position: absolute;
+            right: 0;
+            top: 5px;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--accent-blue);
+        }
+
+        .story-box {
+            background-color: #F0F4FF;
+            padding: 20px;
+            border-right: 4px solid var(--accent-blue);
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .save-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .save-btn {
+            background-color: var(--accent-blue);
+            color: #FFFFFF;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .save-btn:hover {
+            background-color: #0044CC;
+        }
+
+        @media (max-width: 600px) {
+            .card-header {
+                padding: 20px;
+            }
+            .card h2 {
+                font-size: 1.2rem;
+            }
+            .card-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>خارطة الطريق لكورس الفيزياء الحيوية 🧬🔬</h1>
+            <p>أهلاً بك في عالم الجامعة! لأننا نقدر حجم التوتر الذي قد يصاحبك في البداية، ولأن هناك أسئلة وتخوفات تدور في ذهن أغلب الطلاب قبل دراسة كورس BPHYS101، صممنا هذا الدليل السريع للإجابة عليها. البداية الصحيحة ستفك "شفرة" المادة وتوفر عليك ضغطاً نفسياً كبيراً.. خذ نفساً عميقاً، ولنبدأ 💪</p>
+        </header>
+
+        <div class="faq-section">
+            
+            <!-- السؤال الأول -->
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <span class="card-number">01</span>
+                        <h2>إزاي أذاكر من غير ما أحس بـ Stress؟ 📖</h2>
+                    </div>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content-wrapper">
+                    <div class="card-content">
+                        <p>أكبر تحدي يواجه الطالب الجامعي الجديد هو الاستمرار بعقلية المدرسة (الحفظ والتلقين). الفيزياء الجامعية لا تعترف بحفظ القوانين لصبها في ورقة الامتحان، بل تتطلب <span class="highlight">Mindset</span> جديد يعتمد على الفهم العميق وتطبيق الأفكار.</p>
+                        <ul>
+                            <li><strong>الاستماع النشط (Active Listening):</strong> حضورك للمحاضرة ليس مجرد تسجيل غياب، بل هو لفهم "طريقة التفكير" وكيف نربط المفاهيم الفيزيائية بتطبيقاتها في معامل التكنولوجيا الحيوية.</li>
+                            <li><strong>سلاح الـ Notes:</strong> لا تعتمد على ذاكرتك فقط. دون ملاحظاتك، سجل الأفكار التي نؤكد عليها، وأي تساؤل يلمع في ذهنك أثناء الشرح.</li>
+                            <li><strong>تثبيت المعلومة (Consolidation):</strong> عقلك يبرمج المعلومات بشكل أفضل إذا راجعتها في نفس اليوم. مراجعة سريعة للمحاضرة توفر عليك ساعات من المذاكرة ليلة الامتحان.</li>
+                            <li><strong>الممارسة هي الحل:</strong> فهم الفكرة نظرياً لا يكفي، ابدأ بحل الـ Assignments بنفسك. الخطأ أثناء التدريب هو الذي يبني الفهم الحقيقي.</li>
+                            <li><strong>لا تكتم تساؤلاتك:</strong> واجهت نقطة غامضة؟ اسأل فوراً في المحاضرة أو عبر الـ Teams. لا تترك ثغرات تتراكم لتصبح عقبات.</li>
+                        </ul>
+                        <div class="story-box">
+                            <strong>الخلاصة المريحة للأعصاب:</strong> احضر بتركيز → افهم بعمق → راجع فوراً → حل بيدك → اسأل بلا تردد 🌟
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- السؤال الثاني -->
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <span class="card-number">02</span>
+                        <h2>صدمة اللغة.. حاسس إني تايه وسط المصطلحات؟ 🧬</h2>
+                    </div>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content-wrapper">
+                    <div class="card-content">
+                        <p>دعنا نتحدث بصراحة.. الإحساس بالضياع أو التشتت في الأسابيع الأولى هو أمر <strong>علمي وطبيعي جداً</strong> (Language Shock). عقلك ينتقل من نظام الاستيعاب باللغة العربية إلى بيئة أكاديمية إنجليزية 🇬🇧📖. صدقني، لست وحدك من يمر بهذا التحدي 🤝.</p>
+                        <p style="margin-top: 15px;">❌ الفخ الذي يقع فيه الكثيرون هو محاولة دراسة "General English" أو ترجمة كل حرف.<br>
+                        ✅ الحل الذهبي هو تعلم <span class="highlight">English for your field</span>؛ أي إتقان المصطلحات العلمية التي تتكرر باستمرار في مجال الـ Biotechnology والـ Biophysics.</p>
+                        
+                        <div class="story-box">
+                            💡 <strong>سر برمجة العقل:</strong> عندما تواجه كلمة <strong>Viscosity</strong> لأول مرة، افهم أنها تعني <strong>اللزوجة</strong>، واربطها فوراً بتطبيق في تخصصك؛ مثل <strong>لزوجة السوائل البيولوجية وتأثيرها على استخلاص البروتينات أو زراعة الأنسجة (Tissue Culture)</strong>. مع التكرار، سيتخطى عقلك حاجز الترجمة ويفهم المعنى العلمي المرتبط بمعملك مباشرة.
+                        </div>
+
+                        <p>لا تقلق، أنت لست مطالباً بقراءة أعمال شكسبير! أصعب مرحلة هي أول شهرين فقط، بعدها يبدأ العقل في التأقلم وتصبح المصطلحات مألوفة وعادية. لا تحكم على قدراتك من الأسبوع الأول، فقط <strong>ابدأ، استمر، وأعطِ نفسك الوقت الكافي</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- السؤال الثالث -->
+            <div class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <span class="card-number">03</span>
+                        <h2>"دخلت بايو تكنولوجي عشان أهرب من الفيزياء".. عندك العقدة دي؟ 😊</h2>
+                    </div>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="card-content-wrapper">
+                    <div class="card-content">
+                        <p>كثير من الطلاب يبدأون عامهم الأول وهم يحملون تجربة سلبية مع فيزياء الثانوية العامة، ويكون الخوف الأكبر هو: "هل ستدمر الفيزياء الـ GPA الخاص بي؟". اطمئن تماماً، الفيزياء هنا مختلفة جذرياً 🌟.</p>
+                        <p style="margin-top: 15px;">نحن لا نستعرض تعقيدات رياضية مجردة، بل ندرس المبادئ التي تصنع منك أخصائي تكنولوجيا حيوية (Biotechnologist) محترفاً ومدركاً لأساس عمل كل تقنية في معمله. على سبيل المثال:</p>
+                        
+                        <ul>
+                            <li><strong>الديناميكا الحرارية (Thermodynamics):</strong> هل تخيلت يوماً أن استقرار شريط الـ DNA، أو كيفية تشكل البروتينات (Protein Folding) تحكمه قوانين الطاقة والحرارة؟ فهمك لهذه القوانين هو ما يجعلك قادراً على تصميم تفاعلات الـ PCR بنجاح لنسخ الجينات!</li>
+                            <li><strong>ميكانيكا الموائع (Fluid Mechanics):</strong> هي ما سيفهمك كيفية استخلاص وفصل مكونات الخلية (مثل الـ RNA والـ DNA) باستخدام أجهزة الطرد المركزي (Centrifuge)، وكيف تلعب الكثافة والسرعة دوراً حاسماً في ذلك.</li>
+                            <li><strong>البصريات والضوء (Optics & Spectroscopy):</strong> دراستك لخصائص الضوء ستجعلك تفهم كيف يعمل جهاز قياس الطيف (Spectrophotometer) لقياس تركيز الحمض النووي بدقة فائقة، وكيف نستخدم الميكروسكوب الفلوريسنتي (Fluorescence Microscope) لتتبع الخلايا الحية.</li>
+                        </ul>
+
+                        <div class="story-box" style="margin-top: 25px;">
+                            ⭐ <strong>عقد الشراكة بيننا:</strong> الامتحان سيكون انعكاساً دقيقاً لما تم شرحه والتدريب عليه. لا يوجد فخاخ أو أسئلة تعجيزية تقيس قدرتك على التخمين، بل هدفنا الوحيد هو قياس مدى استيعابك للمبادئ التي ستفيدك في مجالك.
+                        </div>
+
+                        <p><strong>رسالة من طالبة سابقة:</strong> زارتني طالبة في مكتبي نهاية أحد الفصول الدراسية لتشكرني. اعترفت لي أنها دخلت الكلية بعقدة حقيقية من الفيزياء وكانت مرعوبة من الفشل فيها. لكنها قررت المحاولة، تابعت الشروحات بإصرار، وكانت النتيجة حصولها على تقدير A 🌟. أكثر ما أسعدني لم يكن الدرجة، بل نجاحها في <strong>كسر الحاجز النفسي</strong> الذي كان يقيدها.</p>
+                        
+                        <p style="margin-top: 20px; font-weight: bold; text-align: center; color: var(--accent-blue);">تحرر من تجارب الماضي، أعطِ نفسك فرصة حقيقية، وستكتشف أنك أقوى من مخاوفك 😊</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="save-container">
+            <button class="save-btn" onclick="window.print()">حفظ النصائح</button>
+        </div>
+
+    </div>
+
+    <!-- كود الجافاسكريبت لتشغيل الانزلاق والتمرير السلس -->
+    <script>
+        function toggleCard(clickedCard) {
+            const allCards = document.querySelectorAll('.card');
+            
+            // إغلاق جميع البطاقات الأخرى
+            allCards.forEach(card => {
+                if (card !== clickedCard) {
+                    card.classList.remove('active');
+                }
+            });
+
+            // فتح أو إغلاق البطاقة التي تم النقر عليها
+            const isActive = clickedCard.classList.toggle('active');
+
+            // التمرير السلس ليصبح عنوان البطاقة في أعلى الشاشة عند فتحها
+            if (isActive) {
+                // نستخدم setTimeout لانتظار انتهاء حركة الانزلاق (Transition) التي مدتها 0.4 ثانية
+                setTimeout(() => {
+                    const yOffset = -30; // مسافة علوية (Padding) لراحة العين
+                    const y = clickedCard.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+                }, 400); // 400 ملي ثانية هي نفس مدة الـ transition في الـ CSS
+            }
+        }
+    </script>
+
+</body>
+</html>
